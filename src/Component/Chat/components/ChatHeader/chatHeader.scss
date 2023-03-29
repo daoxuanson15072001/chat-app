@@ -1,0 +1,41 @@
+.chat_header {
+    padding: 5px;
+    height: 50px;
+    display: flex;
+    .chat_header_avatar{
+        display: flex;
+        flex: 1;
+        align-items: center;
+        justify-content: center;
+        img {
+            height: 50px;
+            width: 50px;
+            border-radius: 50%;
+        }
+    }
+    .chat_header_name {
+        display: flex;
+        flex-direction: column;
+        flex : 12;
+        justify-content: space-between;
+        span:first-child {
+               
+                font-family: 'Inter';
+                font-style: normal;
+                font-weight: 600;
+                font-size: 21px;
+                line-height: 20px;
+                color: #011627;
+        }
+    }
+    .chat_header_icon {
+        flex: 2;
+        display: flex;
+        .icon {
+            font-size: 24px;
+            color: gray;
+        }
+        align-items: center;
+        justify-content: space-around;
+    }
+}

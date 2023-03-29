@@ -1,0 +1,69 @@
+.chat_body {
+    background-image: url("../../../../image/—Pngtree—abstract\ love\ cloud\ chat\ pink_1244333.jpg");
+    background-repeat: no-repeat;
+    height: calc(100vh - 50px ); 
+    position: relative;
+    .chat_message {
+        
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px;
+        background-color: white;
+        border-radius: 20px;
+        position: absolute;
+        bottom: 20px;
+        margin: 0 auto;
+        width: 80%;
+        width: 80%;
+        left: 50%;
+        box-sizing: border-box;
+        transform: translateX(-50%);
+        .chat_icon {
+            font-size: 24px;
+            color: burlywood;
+        }
+        input {
+            padding: 10px;
+            width: 100%;
+            border: none;
+        }
+    }
+    .chat_history {        
+        height: 85%;    
+        padding: 0 10%;
+        padding-top: 30px;
+        display: flex;
+        flex-direction: column-reverse;
+        gap: 16px;
+        overflow-y: auto;
+        .message_sender {
+            text-align: right;
+            .inner_sender {
+                text-align: left;
+                background-color: #78E378;
+            }
+        }
+        .message_receive {
+            text-align: left;
+            .inner_sender {
+                text-align: left;
+                background-color: antiquewhite;
+            }
+        }
+        .message_receive, .message_sender {
+            .inner_sender {
+                
+                max-width: 500px;
+                padding: 4px 12px;
+                display: inline-block;
+                border-radius: 12px;
+                div:first-child {
+                    word-break: break-all;
+                    width: 100%;
+                }
+            }
+        }
+    }
+    
+}

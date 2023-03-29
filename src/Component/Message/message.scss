@@ -1,0 +1,38 @@
+.message_container {
+    flex: 1;
+    div {
+        margin: 5px;
+        .message_header {
+            height: 60px;
+            display: flex;
+            flex-direction: row;
+            .menu {
+                flex: 1;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .search {
+                position: relative;
+                flex: 6;
+                input {
+                    width: 80%;
+                    padding: 10px;
+                    border-radius: 10px;
+                    padding-left: 50px;
+                    background-color:#EEEEEE;
+                }
+                .search_icon{
+                    font-size: 24px;
+                    position : absolute;
+                    left:25px;
+                    top : 8px
+                }
+            }
+            
+        }
+        .message_list {
+            background-color: F5F5F5;
+        }
+    }
+}
