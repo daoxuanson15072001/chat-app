@@ -3,20 +3,20 @@ import "./userMessage.scss";
 import { useNavigate } from "react-router-dom";
 
 export interface IDataMessage {
-  _id : number;
+  id: number;
   avatar?: string;
   name?: string;
   content: string;
   timeLine?: string;
   newMessage?: number;
 }
-export const UserMessage = (props : IDataMessage) => {
+export const UserMessage = (props: IDataMessage) => {
   const navigate = useNavigate();
   return (
     <div
       className="message"
       onClick={() => {
-        navigate(`/chat/${props._id}`);
+        navigate(`/chat/${props.id}`);
       }}
     >
       <div className="message_avatar">

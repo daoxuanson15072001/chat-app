@@ -29,6 +29,7 @@ export function LoginForm() {
       .catch((err) => alert("Email hoặc mật khẩu không chính xác"));
   };
   useEffect(() => {
+    console.log('login')
     axios
       .get(API.MyProfile, { headers: { Authorization: `Bearer ${token}` } })
       .then((result) => {

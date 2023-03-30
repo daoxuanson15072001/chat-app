@@ -7,26 +7,28 @@ import axios from "axios";
 import { API } from "api";
 import Cookie from "js-cookie";
 import moment from "moment";
-export const Message = ({ userId }: any) => {
+export const Message = ({ roomId }: any) => {
   const [room, setRoom] = useState<IDataMessage[]>([]);
   const token = Cookie.get("token");
+  const [keyword, setKeyword] = useState("");
   useEffect(() => {
     axios
       .get(`${API.RoomHistory}`, {
         headers: { Authorization: `Bearer ${token}` },
+        params: { keyword: keyword },
       })
       .then((result) => {
         const data = result.data as any[];
         const dataRoom = data.map((item) => {
           return {
-            timeLine: moment(item.time).format("HH:mm"),
+            timeLine: moment(item.timeLastMessage).format("HH:mm"),
             ...item,
           };
         });
         setRoom(dataRoom);
       })
       .catch((e) => console.log(e));
-  }, []);
+  }, [keyword, room]);
   return (
     <div className="message_container">
       <div>
@@ -36,7 +38,11 @@ export const Message = ({ userId }: any) => {
           </div>
           <div className="search">
             <MdSearch className="search_icon"></MdSearch>
-            <input placeholder="Search"></input>
+            <input
+              placeholder="Search"
+              onChange={(e) => setKeyword(e.target.value)}
+              value={keyword}
+            ></input>
           </div>
         </div>
         <div className="message_list">
@@ -50,7 +56,7 @@ export const Message = ({ userId }: any) => {
                   content={item?.content}
                   timeLine={item?.timeLine}
                   // newMessage={item?.newMessage}
-                  _id={item._id}
+                  id={item.id}
                 ></UserMessage>
               );
             else
@@ -62,7 +68,7 @@ export const Message = ({ userId }: any) => {
                   content={`${item?.content.slice(0, 30)}     ` + "....."}
                   timeLine={item?.timeLine}
                   // newMessage={item?.newMessage}
-                  _id={item._id}
+                  id={item.id}
                 ></UserMessage>
               );
           })}
